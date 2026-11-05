@@ -1,0 +1,197 @@
+<p>Shipping operations: voyages, ticketing and boarding, cargo and RoRo, the fleet and its maintenance, customer service, the set-up and the passenger portal.</p>
+<h2 id="s-ship-overview">How the shipping modules fit together<a class="man-hash" href="#s-ship-overview" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>This chapter covers the work of the shipping line itself: voyages and dispatch, ticketing and boarding, cargo and RoRo, the fleet and its maintenance, customer service, the shipping set-up, and the passenger portal. Every one of these pages posts to the books through the accounting modules described in the other chapters, so a ticket sold, a fuel issue or a spare part used appears in the ledger, the voyage P&amp;L and the reports without being entered twice.</p>
+<p>In the menu the shipping modules come first, under <strong>Shipping operations</strong>: Voyage Operations, Ticketing &amp; Boarding, Cargo &amp; RoRo, Fleet &amp; Maintenance, Customer Service and Shipping Set-up. The accounting modules follow under <strong>Accounting</strong>. Each role sees only the pages it may open (the list of roles is in the file <code>USER_ACCOUNTS.md</code> delivered with the program).</p>
+<div class="man-callout man-note"><div class="man-callout-t"><i class="bi bi-info-circle"></i>Two people for the important steps</div><p>A refund, a compensation, a departure override, a fuel adjustment, a work-order deferral, a requisition and a fare change are always decided by someone other than the person who asked for it, in the <strong>Approvals Queue</strong>. A technician cannot inspect or release their own work, and a vessel's no-sail hold needs two releases by two different people. These rules are in the program; they cannot be switched off from a page.</p></div>
+<p>A <strong>voyage</strong> is the centre of everything: tickets, vehicles and cargo are sold for a voyage, boarding scans and manifests belong to it, fuel and voyage costs are charged to it, and the voyage P&amp;L adds them up. A <strong>vessel</strong> is at the same time an accounting <em>class</em> (so the books give a P&amp;L per vessel) and an inventory <em>site</em> (its fuel tanks and stores).</p>
+<h2 id="pg-home-dashboard">Home Dashboard<a class="man-hash" href="#pg-home-dashboard" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>The page that opens after you log in. What it shows depends on your role: a ticket cashier sees the sailings and the shift, an engineer the work orders, the accountant the money.</p>
+<p><strong>Where to find it:</strong> Home &gt; Home Dashboard, or click the name of the program at the top left.</p>
+<div class="table-responsive man-table"><table class="table table-sm">
+<thead>
+<tr><th>Part</th><th>What it shows</th></tr>
+</thead>
+<tbody>
+<tr><td>Figures at the top</td><td>Sailings today, passengers today (paid and boarded), collections today, bookings for the next seven days with the load, vessel holds, open work orders and PM due, open cases, approvals waiting for you, receivables, payables and the fares still deferred. Each figure opens its page.</td></tr>
+<tr><td>Cashier shift</td><td>For a cashier: whether your shift is open, with a link to open or close it.</td></tr>
+<tr><td>Sailings today and tomorrow</td><td>One card per voyage with its route, times, status, and the paid and boarded counts. A sailing at sea shows the ship moving along the route line.</td></tr>
+<tr><td>Needs attention</td><td>Active holds, vessel and crew certificates about to expire, critical defects, fuel variances waiting, cases past their service time and approved refunds still to pay out.</td></tr>
+<tr><td>Collections, last 14 days</td><td>The money taken each day at the counters and online.</td></tr>
+<tr><td>Bank and cash position</td><td>The balance of each bank and cash account (for roles that may see bank balances).</td></tr>
+</tbody></table></div>
+<h2 id="s-ship-voyage-ops">Voyage Operations<a class="man-hash" href="#s-ship-voyage-ops" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>The pages of the operations team and the ship's officers: the voyage board, the schedule, vessel holds, fuel, crew and the approvals queue, and the operations reports.</p>
+<h3 id="pg-ops-voyages">Voyages &amp; Dispatch<a class="man-hash" href="#pg-ops-voyages" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Voyages &amp; Dispatch.</p>
+<p>The list shows the voyages of the dates chosen (today and the next six days at first), filtered by route, vessel or status. Each card shows the paid and boarded counts against the limit; a vessel on hold is marked. <strong>New voyage</strong> schedules a single sailing: the program refuses a vessel already on another voyage at that time and a berth given twice within the hour.</p>
+<p>Click a voyage to open it. Its tabs:</p>
+<div class="table-responsive man-table"><table class="table table-sm">
+<thead>
+<tr><th>Tab</th><th>What you do there</th></tr>
+</thead>
+<tbody>
+<tr><td>Overview</td><td>The figures of the voyage, the places left in each class, the times, and <strong>Change the status</strong>: put on sale, open boarding, release for departure, record the departure (with the fuel on board), record the arrival, complete the voyage. <em>Cancel or reschedule this voyage</em> moves the departure (every passenger booked is told) or cancels it with its reason and authority (sales stop, unpaid holds are released, passengers are told).</td></tr>
+<tr><td>Departure readiness</td><td>The departure checks worked out from the records, the checklist, the weather advisory, the PCG clearance reference, the berth and the crew signed on. The voyage can only be released when every check passes, or when an approved override covers the checks the law allows to be overridden (marked in orange). A no-sail hold and more passengers boarded than the approved limit can never be overridden.</td></tr>
+<tr><td>Vehicles and cargo</td><td>The vehicles booked with their lane and status, and the cargo on board with its weight against the vessel's capacity.</td></tr>
+<tr><td>Fuel, costs and P&amp;L</td><td>The revenue earned and the direct costs of the voyage from the ledger, the fuel used, the voyage costs, and <strong>Add a voyage cost</strong> (port charges, pilotage, tug, crew allowance, stores ...), recorded as a bill to the supplier or a check paid now, with the vessel's class. Every accounting document of the voyage is listed at the bottom.</td></tr>
+<tr><td>Log and report</td><td>The voyage log (status changes, delays, incidents, notices) and the Master's voyage report, signed after arrival. The voyage cannot be completed before the report is signed and the fuel used is recorded.</td></tr>
+</tbody></table></div>
+<div class="man-callout man-tip"><div class="man-callout-t"><i class="bi bi-journal-check"></i>In the books</div><p>Completing a voyage moves its fares from Deferred Passenger Revenue to Passenger Fare Revenue, Fuel Surcharge and Forfeited Fares (no-shows), with the statutory discounts on their own account, in one journal; vehicle fares and prepaid freight go from Deferred Freight Revenue to their revenue accounts.</p></div>
+<h3 id="pg-ops-schedule">Schedule Planner<a class="man-hash" href="#pg-ops-schedule" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Schedule Planner.</p>
+<p><strong>Generate a schedule</strong> creates the voyages of a route and vessel for a range of dates from the departure times and the weekdays you tick; voyages that would clash with another voyage of the same vessel are skipped and listed. The calendar below shows one or two weeks, vessels down and days across, each voyage coloured by status; click one to open it.</p>
+<h3 id="pg-ops-holds">Vessel Holds &amp; Release<a class="man-hash" href="#pg-ops-holds" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Vessel Holds &amp; Release.</p>
+<p>A hold stops a vessel from being released for departure (no-sail) or lets it sail only with an override (restricted). A critical defect or an expired critical certificate puts a no-sail hold on by itself. <strong>Place a hold</strong> adds one by hand with its reason.</p>
+<ol>
+<li>The technical release: the Chief Engineer (or another role with the technical-release permission) confirms that the work order behind the hold passed inspection. The person who did the work cannot give it.</li>
+<li>The safety or management release: another person with the safety-release permission lifts the hold. It must not be the person who gave the technical release or who did the work.</li>
+</ol>
+<h3 id="pg-ops-fuel">Fuel &amp; Bunkering<a class="man-hash" href="#pg-ops-fuel" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Fuel &amp; Bunkering.</p>
+<p>Each vessel's tank gauge shows the fuel on board (ROB) by the books. <strong>Bunkering</strong> records fuel received: it is a bill from the fuel supplier that puts the litres into the vessel's fuel stock at their cost. <strong>Fuel used on a voyage</strong> takes the ROB at departure and at arrival; the difference is issued from the vessel's stock to Voyage Fuel Expense at the average cost, and a variance above the percentage set in the policies is flagged. A <strong>sounding</strong> compares the tank measured with the books; the adjustment waits for approval in the Approvals Queue.</p>
+<h3 id="pg-ops-crew">Crew &amp; Certificates<a class="man-hash" href="#pg-ops-crew" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Crew &amp; Certificates.</p>
+<p>The crew of each vessel by department, with their rank, seafarer ID and certificates (STCW, medical fitness, competency) and the date each one expires. Expired required certificates are counted in the departure readiness of every voyage the person signs on.</p>
+<h3 id="pg-ops-approvals">Approvals Queue<a class="man-hash" href="#pg-ops-approvals" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Voyage Operations &gt; Approvals Queue, or the check-mark button in the top bar (it shows how many wait for you).</p>
+<p>The requests you may decide, with their amount and summary. <strong>Approve</strong> carries the decision out at once (the refund is credited, the override recorded, the stock adjusted); <strong>Reject</strong> needs a reason, which the requester sees. A request above your approval limit can only be rejected by you; someone with a higher limit approves it. A manager going on leave can delegate their approvals (Shipping Set-up &gt; Approval Delegations).</p>
+<h3 id="s-ship-ops-reports">Operations reports<a class="man-hash" href="#s-ship-ops-reports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<ul>
+<li><strong>Voyage Profit &amp; Loss</strong>: revenue and direct costs of each voyage from the ledger, with the overheads of the period shared by sailing hours when ticked.</li>
+<li><strong>Vessel &amp; Route Profitability</strong>, <strong>Departure Punctuality</strong> (ETD against ATD, delay causes, on-time share), <strong>Fuel Consumption &amp; ROB Variance</strong>, <strong>Crew Certificate Expiry</strong>.</li>
+</ul>
+<h2 id="s-ship-ticketing">Ticketing &amp; Boarding<a class="man-hash" href="#s-ship-ticketing" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>The pages of the ticket offices, the gate and the ticketing manager.</p>
+<h3 id="pg-tkt-booking">Booking Desk<a class="man-hash" href="#pg-tkt-booking" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Booking Desk.</p>
+<ol>
+<li><strong>Find voyages</strong>: choose the route and date; each voyage shows the places left by class.</li>
+<li>Who is booking: the name, mobile number and e-mail of the person paying, the kind of sale (walk-in, travel agent, corporate account) and the ticket office.</li>
+<li>Passengers: the name as written on the ID, birth date, sex, nationality, the category (Regular, Senior Citizen, PWD, Student, Medal of Valor, Child, Infant), the ID number when the category gives a discount, the class, and a seat from the seat map or the next free seat. <strong>Add passenger</strong> adds a row.</li>
+<li>Vehicles: the class, plate number, length and weight, and the passenger who drives it. <strong>Add vehicle</strong> adds a row.</li>
+<li>The price on the right is worked out as you type: published fare, statutory discount, VAT, fuel surcharge, terminal fee and insurance, each on its own line.</li>
+<li><strong>Hold the places</strong>: the whole group is held for the minutes set in the policies, or nothing is held when it does not fit.</li>
+<li><strong>Record payment and issue tickets</strong>: cash (into your open cashier shift), card, GCash, Maya, bank transfer or check with its reference, or on account for a travel agent or corporate customer. The e-tickets are numbered, signed and ready to print.</li>
+</ol>
+<p>A reservation made on the passenger portal is paid here too: type its booking reference, or open it from Bookings &amp; Tickets with <strong>Take payment</strong>.</p>
+<div class="man-callout man-tip"><div class="man-callout-t"><i class="bi bi-shield-check"></i>No double sale</div><p>Every sale of a voyage waits its turn on that voyage, so the last seat is never sold twice. A payment carries a one-time key: pressing the button twice, or a payment provider sending the same notice twice, records one payment.</p></div>
+<h3 id="pg-tkt-bookings">Bookings &amp; Tickets<a class="man-hash" href="#pg-tkt-bookings" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Bookings &amp; Tickets.</p>
+<p>Find a booking by its reference, a ticket number, a name, a phone number or the voyage. A booking shows its tickets, vehicles, payments and the accounting documents it posted. From there: print the e-tickets and vehicle passes, take the payment of a held booking, request a refund (it goes to the Approvals Queue), or move a ticket to another sailing of the same route (the change fee and any fare difference are collected). Names, birth dates and phone numbers are partly hidden for roles without the permission to see passenger data.</p>
+<h3 id="pg-tkt-boarding">Boarding Scanner<a class="man-hash" href="#pg-tkt-boarding" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Boarding Scanner.</p>
+<p>Choose the voyage and whether you are checking passengers in or boarding them, then point the phone or tablet camera at the QR code of the e-ticket (or type the ticket number). The answer shows in large colours: accepted, already scanned, wrong voyage, cancelled, unpaid, or not a valid ticket (a code whose number or voyage was changed fails its signature). Every scan is logged with the device and the officer. The counts at the top are worked out from the accepted scans.</p>
+<div class="man-callout man-note"><div class="man-callout-t"><i class="bi bi-info-circle"></i>No signal at the gate</div><p>When the connection drops, scans are kept on the device and sent when it is back (the dot beside the counts shows the connection). The camera needs the page opened on an https:// address or on localhost; otherwise type the ticket numbers.</p></div>
+<h3 id="pg-tkt-manifest">Passenger Manifests<a class="man-hash" href="#pg-tkt-manifest" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Passenger Manifests.</p>
+<p>The manifest of a voyage is generated from the boarded scans: passengers, crew signed on and vehicles. A <em>draft</em> can be made at any time; the <em>final</em> manifest is made after the last passenger boards and is signed by the Master or the boarding officer. A new version replaces the older one, which is kept. Print it in the MARINA / PCG layout, or export it to CSV; each export is recorded.</p>
+<h3 id="pg-tkt-cashier">Cashier Shifts<a class="man-hash" href="#pg-tkt-cashier" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Cashier Shifts.</p>
+<p><strong>Open shift</strong> with the opening float at your ticket office. The page shows what the shift has taken by method. At the end of the day, count the cash and <strong>Close shift</strong>: the difference against what the system expects is posted to Cash Over and Short. Another person (the ticketing manager or the treasurer) reviews the closed shift with <strong>Mark as reviewed</strong>; nobody reviews their own. <strong>Print shift report</strong> prints the shift.</p>
+<h3 id="pg-tkt-refunds">Refunds &amp; Cancellations<a class="man-hash" href="#pg-tkt-refunds" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Refunds &amp; Cancellations.</p>
+<p>Refunds waiting for approval, approved refunds to pay out (cash needs your open shift), paid and rejected ones. The tab for <strong>cancelled voyages</strong> lists the passengers of every cancelled sailing still to be served: a full refund request or a free move to another sailing of the same route, one click each.</p>
+<div class="man-callout man-tip"><div class="man-callout-t"><i class="bi bi-journal-check"></i>In the books</div><p>An approved refund is a credit memo that takes back the fare from Deferred Passenger Revenue (or the revenue account, once earned), the VAT and the fee payables; paying it out credits the cash or bank. The part of the fare kept under the cancellation policy goes to Ticket Change and Cancellation Fees.</p></div>
+<h3 id="pg-tkt-manual">Manual Ticket Contingency<a class="man-hash" href="#pg-tkt-manual" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Ticketing &amp; Boarding &gt; Manual Ticket Contingency.</p>
+<p>When the system or the power is down, the counter sells from pre-numbered manual tickets. Afterwards each stub is entered here with its series number: encoded as a booking paid into the cashier's shift, posted as a cash sale when the voyage already sailed, linked to a ticket that already exists, or voided. A series number already used on the same voyage is refused; unreconciled stubs appear in the control exceptions report.</p>
+<h3 id="s-ship-tkt-reports">Ticketing reports<a class="man-hash" href="#s-ship-tkt-reports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<ul>
+<li><strong>Passenger Sales</strong> by date, route, office, channel or category, with VAT and net.</li>
+<li><strong>Sold vs Paid vs Boarded</strong> per voyage, with the mismatches flagged.</li>
+<li><strong>Load Factor by Voyage</strong>, <strong>Statutory Discounts Register</strong> (for BIR and the LGU; ID numbers show their last four digits), <strong>Refunds &amp; Cancellations Register</strong>, <strong>Cashier Collections vs Deposits</strong>, <strong>Advance Bookings</strong> (future sailings, tied to Deferred Passenger Revenue).</li>
+</ul>
+<h2 id="s-ship-cargo">Cargo &amp; RoRo<a class="man-hash" href="#s-ship-cargo" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+
+<h3 id="pg-cgo-shipments">Cargo Shipments &amp; Waybills<a class="man-hash" href="#pg-cgo-shipments" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Cargo &amp; RoRo &gt; Cargo Shipments &amp; Waybills.</p>
+<p>A waybill has the shipper (a customer account or a walk-in), the consignee, the commodity class, the packages with their weight, volume and declared value, the voyage and the payment terms (prepaid, collect or on credit within the customer's credit limit). <strong>Work out the price</strong> applies the tariff of the route and commodity (by weight or volume, whichever is more), handling and insurance. The status then follows the cargo: accepted at the pier, loaded, in transit, landed, delivered with the proof of delivery, or short-landed, damaged and claimed (a claim opens a support case). Prepaid freight is a sales receipt held as Deferred Freight Revenue until the voyage is completed; credit freight is invoiced after delivery with <strong>Invoice the freight now</strong>. <strong>Print</strong> prints the waybill.</p>
+<h3 id="pg-cgo-vehicles">RoRo Loading &amp; Vehicle Passes<a class="man-hash" href="#pg-cgo-vehicles" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Cargo &amp; RoRo &gt; RoRo Loading &amp; Vehicle Passes.</p>
+<p>The vehicles of a voyage on a deck plan drawn to the lane meters of the vessel. Assign each vehicle a deck, lane and position by hand or automatically, then check it in, load it and unload it; the lane meters used can never pass the vehicle deck's capacity. <strong>Print</strong> prints the loading list.</p>
+<h3 id="pg-cgo-port_fees">Port Fee Reconciliation &amp; Remittance<a class="man-hash" href="#pg-cgo-port_fees" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Cargo &amp; RoRo &gt; Port Fee Reconciliation &amp; Remittance.</p>
+<p>The terminal fee and passenger insurance collected on each voyage for their owners (the port authority, the insurer), against what was already remitted. Tick the voyages and remit them by check; the check clears the payable account.</p>
+<h3 id="s-ship-cgo-reports">Cargo reports<a class="man-hash" href="#s-ship-cgo-reports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<ul>
+<li><strong>Cargo Tonnage &amp; Volume</strong>, <strong>Cargo Exceptions &amp; Claims</strong>, <strong>Vehicle Lane Utilization</strong>, <strong>Port &amp; Terminal Fees by Voyage</strong>.</li>
+</ul>
+<h2 id="s-ship-fleet">Fleet &amp; Maintenance<a class="man-hash" href="#s-ship-fleet" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+
+<h3 id="pg-fleet-vessels">Vessel Registry<a class="man-hash" href="#pg-fleet-vessels" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Vessel Registry.</p>
+<p>Each vessel's particulars (official number, tonnage, capacities, lane meters, fuel tank and burn rate), its <strong>accommodation plan</strong> (classes with their deck, capacity, seat rows and columns, priority seats) from which the seat maps are made, and its voyages. Saving a new vessel also makes its accounting class and its inventory site for fuel and stores, and links it to its fixed asset.</p>
+<h3 id="pg-fleet-certificates">Vessel Certificates<a class="man-hash" href="#pg-fleet-certificates" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Vessel Certificates.</p>
+<p>Every certificate with its issuer, number and expiry, coloured as it nears expiry. A critical certificate that expires puts a no-sail hold on the vessel; renewing it lifts that hold.</p>
+<h3 id="pg-fleet-equipment">Equipment Hierarchy<a class="man-hash" href="#pg-fleet-equipment" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Equipment Hierarchy.</p>
+<p>The systems, equipment and components of each vessel as a tree, with their criticality and running hours. A meter reading can never go down.</p>
+<h3 id="pg-fleet-pm">Planned Maintenance<a class="man-hash" href="#pg-fleet-pm" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Planned Maintenance.</p>
+<p>Maintenance plans by calendar (every so many days) or by running hours, with what is due and overdue. Raise the work orders of the plans that are due in one step.</p>
+<h3 id="pg-fleet-defects">Defect Reports<a class="man-hash" href="#pg-fleet-defects" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Defect Reports.</p>
+<p>Anyone on board reports a defect with its severity. A critical defect puts a no-sail hold on the vessel at once. Triage decides what happens next (a work order, deferral, no action) and the work order created is linked.</p>
+<h3 id="pg-fleet-workorders">Work Orders<a class="man-hash" href="#pg-fleet-workorders" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Work Orders.</p>
+<p>Work orders on a board by status or as a list. A work order goes from triaged and approved to in progress, waiting for parts, inspection, passed, completed and closed. On it you log the labor (hours costed to the vessel), issue spare parts from the vessel's or the shore stock, add outside services (billed by the supplier) and ask to defer it (approval). The technician who did the work cannot pass its inspection or close it. <strong>Print</strong> prints the job card.</p>
+<div class="man-callout man-tip"><div class="man-callout-t"><i class="bi bi-journal-check"></i>In the books</div><p>Parts issued are an inventory adjustment to Spare Parts Consumed (or to Capital Works in Progress for a capital job); labor is a journal from Repairs and Maintenance to Internal Labor Absorbed; outside services are a bill.</p></div>
+<h3 id="pg-fleet-drydock">Dry-docking Projects<a class="man-hash" href="#pg-fleet-drydock" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Dry-docking Projects.</p>
+<p>A dry-docking with its yard, dates, budget and milestones; the bills and work orders linked to it give the actual cost against the budget, split between capital and expense. Starting and completing the project sets the vessel to dry-dock and back to in service.</p>
+<h3 id="pg-fleet-requisitions">Purchase Requisitions &amp; Canvass<a class="man-hash" href="#pg-fleet-requisitions" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Fleet &amp; Maintenance &gt; Purchase Requisitions &amp; Canvass.</p>
+<p>A requisition lists what is needed with the vessel and the work order it is for. <strong>Save and submit for approval</strong> sends it to the Approvals Queue (an emergency purchase can be marked as such). Once approved, the procurement officer records the quotations; <strong>Make the purchase order</strong> needs two quotations or a reason, and the lowest one or a reason for choosing another. The purchase order is then received and billed in the Vendors module as usual.</p>
+<h3 id="s-ship-fleet-reports">Maintenance reports<a class="man-hash" href="#s-ship-fleet-reports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<ul>
+<li><strong>Work Order Status</strong>, <strong>Planned Maintenance Due &amp; Overdue</strong>, <strong>Repair Spend by Vessel &amp; Equipment</strong>, <strong>Reliability: Downtime, Failures, MTTR</strong>, <strong>Vessel Certificate Expiry</strong>, <strong>Spare Parts Issued to Work Orders</strong>.</li>
+</ul>
+<h2 id="s-ship-care">Customer Service<a class="man-hash" href="#s-ship-care" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+
+<h3 id="pg-care-cases">Support Cases &amp; Claims<a class="man-hash" href="#pg-care-cases" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Customer Service &gt; Support Cases &amp; Claims.</p>
+<p>A case has its category (booking help, rebooking, refund follow-up, missed departure, lost baggage, cargo claim, accessibility, delayed voyage, complaint), priority and the time it must be answered by, and can be linked to a booking, ticket, voyage or waybill. Replies and internal notes build its timeline. A compensation (a travel voucher or cash) goes through the Approvals Queue. A case past its service time is escalated by itself. Cases sent from the passenger portal arrive here.</p>
+<h3 id="pg-care-notifications">Notifications &amp; Notices<a class="man-hash" href="#pg-care-notifications" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> Customer Service &gt; Notifications &amp; Notices.</p>
+<p>Every notice the system made: e-tickets, reservations, delays, cancellations, boarding open, refunds, case updates, and the notices to staff. In-app notices to staff are delivered in the bell of the top bar. E-mail and SMS notices are only sent once a provider is connected in the shipping policies; until then they are kept here as <em>no provider</em>, with their text, so nothing is lost.</p>
+<h3 id="pg-home-notices">My Notices<a class="man-hash" href="#pg-home-notices" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p><strong>Where to find it:</strong> The bell in the top bar, then <strong>All my notices</strong>.</p>
+<p>The notices sent to you: approvals waiting, cases assigned, holds, refunds. Clicking one marks it read and opens its record.</p>
+<h2 id="s-ship-setup">Shipping Set-up<a class="man-hash" href="#s-ship-setup" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>The lists and policies behind the shipping pages, usually kept by the operations manager, the ticketing manager and the accountant.</p>
+<h3 id="pg-shp-ports">Ports &amp; Terminals<a class="man-hash" href="#pg-shp-ports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>The ports the line calls at, with their authority, berths and the supplier the terminal fee is remitted to.</p>
+<h3 id="pg-shp-routes">Routes<a class="man-hash" href="#pg-shp-routes" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>Each route from one port to another, with its distance, transit time and stops.</p>
+<h3 id="pg-shp-fares">Fare Matrix &amp; Rates<a class="man-hash" href="#pg-shp-fares" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>Passenger fares by route and class with their peak fare and fuel surcharge, peak dates, vehicle rates by class, cargo tariffs by commodity, and promo codes. A new rate starts on its effective date and ends the old one the day before, so the history of every fare is kept and every ticket keeps the fare it was sold at. A promo never adds to a statutory discount.</p>
+<h3 id="pg-shp-categories">Passenger Categories &amp; Discounts<a class="man-hash" href="#pg-shp-categories" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>Regular, Senior Citizen and PWD (20% off the fare net of VAT, VAT-exempt), Student and Medal of Valor (20%), Child and Infant, with the ID each one needs, the ages it covers and its legal basis.</p>
+<h3 id="pg-shp-fees">Fees &amp; Third-party Charges<a class="man-hash" href="#pg-shp-fees" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>The terminal fee and passenger insurance collected for their owners, with their payable account, the port they apply at and the categories exempt from them.</p>
+<h3 id="pg-shp-vehicle_classes">Vehicle Classes<a class="man-hash" href="#pg-shp-vehicle_classes" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>Motorcycle, car, van, trucks, bus and trailer, with the longest and heaviest vehicle of each and the lane meters it takes.</p>
+<h3 id="pg-shp-offices">Ticket Offices &amp; Outlets<a class="man-hash" href="#pg-shp-offices" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>The ticket offices, outport counters and the online channel, with their cash account and the users who sell there. A user sells only at the offices given to them.</p>
+<h3 id="pg-shp-settings">Shipping Policies &amp; Posting Accounts<a class="man-hash" href="#pg-shp-settings" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>When fare revenue is recognized (when the voyage is completed, or on sale), hold times, sales cut-off before departure, the most passengers in one booking, cancellation and change fees, refund rules, the fuel variance threshold, job-card labor, offline scanning, the service times of support cases, and the e-mail, SMS and payment providers. The <strong>accounting event matrix</strong> shows which accounts each shipping event posts to; the accounts themselves are chosen on <a href="manual.php?c=chart-of-accounts#pg-coa-default_accounts">Module Default Accounts</a>.</p>
+<h3 id="pg-shp-delegations">Approval Delegations<a class="man-hash" href="#pg-shp-delegations" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>A manager hands their approvals to another person for a period, for some or all kinds of request.</p>
+<h3 id="pg-shp-compliance">Compliance Register<a class="man-hash" href="#pg-shp-compliance" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<p>The filings and renewals the line must keep up with (MARINA, PCG, BIR, LGU), with their owner, due date and evidence.</p>
+<h3 id="s-ship-control-reports">Control reports<a class="man-hash" href="#s-ship-control-reports" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h3>
+<ul>
+<li><strong>Control Exceptions (Anti-fraud Flags)</strong>: refunds asked by the person who sold the ticket, fare overrides, manual tickets not reconciled, rejected scans by officer, large refunds, cash over and short.</li>
+<li><strong>Ticket, Ledger &amp; Manifest Reconciliation</strong>: the tickets sold against the sales receipts and invoices, the deferred revenue against the tickets not yet flown, and the boarded count against the final manifest.</li>
+</ul>
+<h2 id="s-ship-portal">The passenger portal<a class="man-hash" href="#s-ship-portal" aria-label="Link to this section"><i class="bi bi-link-45deg"></i></a></h2>
+<p>The public pages of the shipping line, at <code>portal.php</code> (the log-in page links to it). Passengers use it without a staff account.</p>
+<ul>
+<li><strong>Book a trip</strong>: choose the ports and date; each sailing shows its fare by class and the places left. Choose a sailing, enter the passengers (the names go on the manifest), see the itemized fare and reserve. The reservation is held for the time set in the policies and paid at any ticket office with its booking reference.</li>
+<li><strong>My bookings</strong>: the bookings of the account; a paid booking shows the e-tickets with their QR codes, to show at the gate or print. An unpaid reservation can be cancelled there.</li>
+<li><strong>Trip status</strong>: with the booking reference and a passenger's last name, whether the sailing is on time, delayed, boarding, at sea or cancelled. No account is needed.</li>
+<li><strong>Help</strong>: a concern sent to customer service becomes a support case; the answers come by e-mail and show under the account.</li>
+</ul>
+<p>Portal accounts are separate from staff accounts. With several shipping companies on the installation, the passenger first chooses the line.</p>

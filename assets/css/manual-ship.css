@@ -1,0 +1,15 @@
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("../vendor/fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("../vendor/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("../vendor/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("../vendor/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 800; font-display: swap; src: url("../vendor/fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2"); }
+/* G-SMaRT Shipping System - the User's Manual in the shipping colours (loads after manual.css) */
+:root { --blue: #11a0aa; --blue-deep: #08606b; --blue-tint: #e3f4f5; }
+body.manual { font-family: "Plus Jakarta Sans", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; background: #eef3f6; }
+body.manual .app-bar { background: linear-gradient(100deg, #061423 0%, #0a1f35 45%, #0e2d4a 100%) !important; border-bottom: 1px solid rgba(95, 211, 198, .18); }
+body.manual .app-bar .navbar-brand { display: inline-flex; align-items: center; gap: .65rem; font-weight: 700; letter-spacing: -.01em; color: #fff; }
+.brand-mark { width: 34px; height: 34px; display: inline-grid; place-items: center; border-radius: 10px; flex: 0 0 auto;
+  background: linear-gradient(160deg, #13a6b0, #0b6f7b 60%, #0a4f63);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 -2px 0 rgba(0, 0, 0, .25) inset, 0 6px 14px -6px rgba(17, 160, 170, .8); }
+.brand-mark svg { width: 22px; height: 22px; }
+body.manual .man-doc h1, body.manual .man-doc h2 { color: #0a1f35; letter-spacing: -.015em; }
